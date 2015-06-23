@@ -1,3 +1,13 @@
+frd_car:
+    resource: "@FRDCarBundle/Controller/"
+    type:     annotation
+    prefix:   /cars/
+
+frd_produto:
+    resource: "@FRDProdutoBundle/Controller/"
+    type:     annotation
+    prefix:   /produtos/
+
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
