@@ -16,7 +16,7 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/{carro}/{modelo}", name="projeto01")
+     * @Route("/run/{carro}/{modelo}", name="projeto01")
      */
     public function runAction($carro, $modelo)
     {
