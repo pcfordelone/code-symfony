@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4dd740d3-9768-45e4-9777-aec65754d056" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/FRD/CarBundle/Resources/views/Car/fabricante.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FRD/CarBundle/Controller/CarController.php" afterPath="$PROJECT_DIR$/src/FRD/CarBundle/Controller/CarController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FRD/CarBundle/Entity/Carro.php" afterPath="$PROJECT_DIR$/src/FRD/CarBundle/Entity/Carro.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FRD/CarBundle/Entity/Fabricante.php" afterPath="$PROJECT_DIR$/src/FRD/CarBundle/Entity/Fabricante.php" />
