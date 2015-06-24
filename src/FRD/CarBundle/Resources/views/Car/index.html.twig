@@ -1,24 +1,11 @@
-<!doctype html>
-<html lang="pt-br">
-<head>
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+{% extends "::base.html.twig" %}
 
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+{% block body %}
+    <h1>Lista de Carros</h1>
 
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-</head>
-<body>
-    <div class="container">
-        <h1>Lista de Marcas e Modelos</h1>
-
-        <ul>
-            {% for car in carros %}
-                <li>{{ car.fabricante }} - {{ car.modelo }}</li>
-            {% endfor %}
-        </ul>
-    </div>
-</body>
-</html>
+    <ul>
+        {% for car in carros %}
+            <li>{{ car.fabricante.nome }} - {{ car.modelo }}: ano:{{ car.ano }} / cor: {{ car.cor }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

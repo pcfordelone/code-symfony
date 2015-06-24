@@ -4,7 +4,7 @@
     <h3>Carros Inseridos:</h3>
     <ul>
         {% for carro in carros %}
-            <li>{{ carro.fabricante }}-{{ carro.modelo }}: {{ carro.ano }}, {{ carro.cor }}</li>
+            <li>{{ carro.fabricante.nome }}-{{ carro.modelo }}: {{ carro.ano }}, {{ carro.cor }}</li>
         {% endfor %}
     </ul>
 {% endblock %}

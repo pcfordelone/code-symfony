@@ -1,0 +1,10 @@
+{% extends "::base.html.twig" %}
+
+{% block body %}
+    <h3>{{ fabricante.nome }}</h3>
+    <ul>
+        {% for carro in fabricante.carros %}
+            <li><strong>{{ carro.modelo }}</strong>: ano:{{ carro.ano }} / cor: {{ carro.cor }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

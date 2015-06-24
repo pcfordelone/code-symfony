@@ -29,10 +29,9 @@ class Carro
     private $modelo;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="fabricante", type="string", length=255)
-     */
+     * @ORM\ManyToOne(targetEntity="Fabricante", inversedBy="carros")
+     * @ORM\JoinColumn(name="fabricante_id", referencedColumnName="id")
+     **/
     private $fabricante;
 
     /**

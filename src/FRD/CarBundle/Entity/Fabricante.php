@@ -2,6 +2,7 @@
 
 namespace FRD\CarBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -25,6 +26,27 @@ class Fabricante
      * @ORM\Column(name="name", type="string", length=255)
      */
     private $nome;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Carro", mappedBy="fabricante")
+     **/
+    private $carros;
+
+    public function __construct()
+    {
+        $this->carros = new ArrayCollection();
+    }
+
+    public function getCarros()
+    {
+        return $this->carros;
+    }
+
+    public function setCarros($carros)
+    {
+        $this->carros = $carros;
+        return $this;
+    }
 
     public function getId()
     {
