@@ -3,7 +3,12 @@
 {% block body %}
 <ul>
     {% for produto in produtos %}
-        <li>{{ produto.name }} - {{ produto.description }}</li>
+        <li>
+            <strong>{{ produto.name }} - {{ produto.description }}</strong>
+            (Peso: {{ produto.detail.peso }}
+            , Altura: {{ produto.detail.altura }}
+            , Largura: {{ produto.detail.largura }})
+        </li>
     {% endfor %}
 </ul>
 {% endblock %}

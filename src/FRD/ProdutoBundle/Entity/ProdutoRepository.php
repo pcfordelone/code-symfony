@@ -7,9 +7,9 @@ use Doctrine\ORM\EntityRepository;
 
 class ProdutoRepository extends EntityRepository
 {
-    public function findIdMenorQue($num)
+    public function findIdMaiorQue($num)
     {
-        $dql = "SELECT p FROM FRDProdutoBundle:Produto p WHERE p.id < :num";
+        $dql = "SELECT p FROM FRDProdutoBundle:Produto p WHERE p.id > :num";
 
         return $this
                 ->getEntityManager()

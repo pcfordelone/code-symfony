@@ -6,6 +6,7 @@ use FRD\ProdutoBundle\Entity\Produto;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use FRD\ProdutoBundle\Entity\ProdutoDetalhe;
 
 class DefaultController extends Controller
 {
@@ -26,16 +27,28 @@ class DefaultController extends Controller
     {
         $produto = new Produto();
         $produto
-            ->setName("Tenis Adidas")
-            ->setDescription("Descrição tenis Adidas.")
+            ->setName("Tenis Mizuno")
+            ->setDescription("Descrição tenis Mizuno.")
         ;
 
+        $produtoDetalhe = new ProdutoDetalhe();
+        $produtoDetalhe
+            ->setAltura(10)
+            ->setLargura(15)
+            ->setPeso(1)
+        ;
+
+        $produto->setDetail($produtoDetalhe);
+
         $em = $this->getDoctrine()->getManager();
+        $em->persist($produtoDetalhe);
         $em->persist($produto);
         $em->flush();
 
         $repo = $em->getRepository("FRD\ProdutoBundle\Entity\Produto");
-        $produtos = $repo->findIdMenorQue(5);
+        $produtos = $repo->findAll();
+        //$produtos = $repo->findIdMaiorQue(5);
+
 
         return ['produtos'=>$produtos];
     }

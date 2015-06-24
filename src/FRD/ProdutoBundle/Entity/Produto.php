@@ -33,6 +33,22 @@ class Produto
      */
     private $description;
 
+    /**
+     * @ORM\OneToOne(targetEntity="ProdutoDetalhe")
+     * @ORM\JoinColumn(name="detail_id", referencedColumnName="id")
+     **/
+    private $detail;
+
+    public function getDetail()
+    {
+        return $this->detail;
+    }
+
+    public function setDetail($detail)
+    {
+        $this->detail = $detail;
+        return $this;
+    }
 
     public function getId()
     {
