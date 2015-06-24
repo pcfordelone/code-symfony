@@ -1,14 +1,15 @@
 {% extends '::base.html.twig' %}
 
 {% block body %}
-<ul>
-    {% for produto in produtos %}
-        <li>
-            <strong>{{ produto.name }} - {{ produto.description }}</strong>
-            (Peso: {{ produto.detail.peso }}
-            , Altura: {{ produto.detail.altura }}
-            , Largura: {{ produto.detail.largura }})
-        </li>
-    {% endfor %}
-</ul>
+    <h3>{{ categoria.name }}</h3>
+    <ul>
+        {% for produto in categoria.produtos %}
+            <li>
+                <strong>{{ produto.name }}</strong> - {{ produto.description }} - Categoria: {{ produto.category.name }}
+                (Peso: {{ produto.detail.peso }}
+                , Altura: {{ produto.detail.altura }}
+                , Largura: {{ produto.detail.largura }})
+            </li>
+        {% endfor %}
+    </ul>
 {% endblock %}

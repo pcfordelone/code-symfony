@@ -3,6 +3,7 @@
 namespace FRD\ProdutoBundle\Controller;
 
 use FRD\ProdutoBundle\Entity\Produto;
+use FRD\ProdutoBundle\Entity\ProdutoCategoria;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -25,10 +26,12 @@ class DefaultController extends Controller
      */
     public function testeAction()
     {
-        $produto = new Produto();
-        $produto
-            ->setName("Tenis Mizuno")
-            ->setDescription("Descrição tenis Mizuno.")
+        $em = $this->getDoctrine()->getManager();
+
+        /*$categoria = new ProdutoCategoria();
+        $categoria
+            ->setName("Tenis")
+            ->setDescription("Todos os tipos de tenis")
         ;
 
         $produtoDetalhe = new ProdutoDetalhe();
@@ -38,18 +41,31 @@ class DefaultController extends Controller
             ->setPeso(1)
         ;
 
-        $produto->setDetail($produtoDetalhe);
+        $produto = new Produto();
+        $produto
+            ->setName("Tenis Mizuno")
+            ->setDescription("Descrição tenis Mizuno.")
+        ;
 
-        $em = $this->getDoctrine()->getManager();
+        $produto
+            ->setDetail($produtoDetalhe)
+            ->setCategory($categoria)
+        ;
+
+        $em->persist($categoria);
         $em->persist($produtoDetalhe);
         $em->persist($produto);
+
         $em->flush();
 
         $repo = $em->getRepository("FRD\ProdutoBundle\Entity\Produto");
         $produtos = $repo->findAll();
-        //$produtos = $repo->findIdMaiorQue(5);
+        //$produtos = $repo->findIdMaiorQue(5);*/
+
+        $repo = $em->getRepository("FRD\ProdutoBundle\Entity\ProdutoCategoria");
+        $categoria = $repo->find(1);
 
 
-        return ['produtos'=>$produtos];
+        return ['categoria'=>$categoria];
     }
 }

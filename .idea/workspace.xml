@@ -4,7 +4,6 @@
     <list default="true" id="4dd740d3-9768-45e4-9777-aec65754d056" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FRD/ProdutoBundle/Controller/DefaultController.php" afterPath="$PROJECT_DIR$/src/FRD/ProdutoBundle/Controller/DefaultController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FRD/ProdutoBundle/Entity/Produto.php" afterPath="$PROJECT_DIR$/src/FRD/ProdutoBundle/Entity/Produto.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FRD/ProdutoBundle/Entity/ProdutoRepository.php" afterPath="$PROJECT_DIR$/src/FRD/ProdutoBundle/Entity/ProdutoRepository.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FRD/ProdutoBundle/Resources/views/Default/teste.html.twig" afterPath="$PROJECT_DIR$/src/FRD/ProdutoBundle/Resources/views/Default/teste.html.twig" />
     </list>
     <ignored path="Symfony.iws" />
@@ -30,21 +29,33 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ProdutoDetalhe.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/FRD/ProdutoBundle/Entity/ProdutoDetalhe.php">
+      <file leaf-file-name="Produto.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/FRD/ProdutoBundle/Entity/Produto.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.875" vertical-offset="150" max-vertical-offset="1290">
-              <caret line="29" column="7" selection-start-line="29" selection-start-column="7" selection-end-line="29" selection-end-column="7" />
+            <state vertical-scroll-proportion="-10.625" vertical-offset="375" max-vertical-offset="1605">
+              <caret line="42" column="52" selection-start-line="42" selection-start-column="36" selection-end-line="42" selection-end-column="52" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Produto.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/FRD/ProdutoBundle/Entity/Produto.php">
+      <file leaf-file-name="ProdutoCategoria.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/FRD/ProdutoBundle/Entity/ProdutoCategoria.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-17.5" vertical-offset="135" max-vertical-offset="1350">
-              <caret line="37" column="38" selection-start-line="37" selection-start-column="38" selection-end-line="37" selection-end-column="38" />
+            <state vertical-scroll-proportion="-13.125" vertical-offset="180" max-vertical-offset="1350">
+              <caret line="33" column="64" selection-start-line="33" selection-start-column="64" selection-end-line="33" selection-end-column="64" />
+              <folding>
+                <element signature="e#44#92#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProdutoDetalhe.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/FRD/ProdutoBundle/Entity/ProdutoDetalhe.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-15.625" vertical-offset="0" max-vertical-offset="1290">
+              <caret line="25" column="18" selection-start-line="22" selection-start-column="4" selection-end-line="25" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -53,8 +64,8 @@
       <file leaf-file-name="DefaultController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/FRD/ProdutoBundle/Controller/DefaultController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-19.708334" vertical-offset="247" max-vertical-offset="915">
-              <caret line="48" column="37" selection-start-line="48" selection-start-column="37" selection-end-line="48" selection-end-column="37" />
+            <state vertical-scroll-proportion="-40.625" vertical-offset="0" max-vertical-offset="1155">
+              <caret line="65" column="36" selection-start-line="65" selection-start-column="36" selection-end-line="65" selection-end-column="36" />
               <folding>
                 <element signature="e#48#85#0#PHP" expanded="true" />
               </folding>
@@ -65,21 +76,9 @@
       <file leaf-file-name="teste.html.twig" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/FRD/ProdutoBundle/Resources/views/Default/teste.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.30564263" vertical-offset="0" max-vertical-offset="638">
-              <caret line="13" column="14" selection-start-line="13" selection-start-column="14" selection-end-line="13" selection-end-column="14" />
+            <state vertical-scroll-proportion="0.23510972" vertical-offset="0" max-vertical-offset="638">
+              <caret line="10" column="56" selection-start-line="7" selection-start-column="16" selection-end-line="10" selection-end-column="56" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ProdutoRepository.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/FRD/ProdutoBundle/Entity/ProdutoRepository.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.125" vertical-offset="0" max-vertical-offset="390">
-              <caret line="13" column="20" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
-              <folding>
-                <marker date="1435162318000" expanded="true" signature="195:253" placeholder="SELECT p FRO..FRDProdutoBundle..." />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -98,10 +97,11 @@
         <option value="$PROJECT_DIR$/src/FRD/CarBundle/Resources/views/Car/index.html.twig" />
         <option value="$PROJECT_DIR$/src/FRD/CarBundle/Controller/CarController.php" />
         <option value="$PROJECT_DIR$/src/FRD/CarBundle/Resources/views/Car/InsertCars.html.twig" />
-        <option value="$PROJECT_DIR$/src/FRD/ProdutoBundle/Entity/Produto.php" />
         <option value="$PROJECT_DIR$/src/FRD/ProdutoBundle/Entity/ProdutoRepository.php" />
         <option value="$PROJECT_DIR$/src/FRD/ProdutoBundle/Entity/ProdutoDetalhe.php" />
+        <option value="$PROJECT_DIR$/src/FRD/ProdutoBundle/Entity/Produto.php" />
         <option value="$PROJECT_DIR$/src/FRD/ProdutoBundle/Controller/DefaultController.php" />
+        <option value="$PROJECT_DIR$/src/FRD/ProdutoBundle/Entity/ProdutoCategoria.php" />
         <option value="$PROJECT_DIR$/src/FRD/ProdutoBundle/Resources/views/Default/teste.html.twig" />
       </list>
     </option>
@@ -585,46 +585,56 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/FRD/ProdutoBundle/Entity/Produto.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-17.5" vertical-offset="135" max-vertical-offset="1350">
-          <caret line="37" column="38" selection-start-line="37" selection-start-column="38" selection-end-line="37" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/FRD/ProdutoBundle/Entity/ProdutoRepository.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.125" vertical-offset="0" max-vertical-offset="390">
+        <state vertical-scroll-proportion="0.30564263" vertical-offset="0" max-vertical-offset="638">
           <caret line="13" column="20" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
           <folding>
-            <marker date="1435162318000" expanded="true" signature="195:253" placeholder="SELECT p FRO..FRDProdutoBundle..." />
+            <marker date="1435162318000" expanded="true" signature="-1:-1" placeholder="SELECT p FRO..FRDProdutoBundle..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/FRD/ProdutoBundle/Entity/ProdutoDetalhe.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.875" vertical-offset="150" max-vertical-offset="1290">
-          <caret line="29" column="7" selection-start-line="29" selection-start-column="7" selection-end-line="29" selection-end-column="7" />
+        <state vertical-scroll-proportion="-15.625" vertical-offset="0" max-vertical-offset="1290">
+          <caret line="25" column="18" selection-start-line="22" selection-start-column="4" selection-end-line="25" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/FRD/ProdutoBundle/Controller/DefaultController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-19.708334" vertical-offset="247" max-vertical-offset="915">
-          <caret line="48" column="37" selection-start-line="48" selection-start-column="37" selection-end-line="48" selection-end-column="37" />
+        <state vertical-scroll-proportion="-40.625" vertical-offset="0" max-vertical-offset="1155">
+          <caret line="65" column="36" selection-start-line="65" selection-start-column="36" selection-end-line="65" selection-end-column="36" />
           <folding>
             <element signature="e#48#85#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/FRD/ProdutoBundle/Entity/Produto.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.625" vertical-offset="375" max-vertical-offset="1605">
+          <caret line="42" column="52" selection-start-line="42" selection-start-column="36" selection-end-line="42" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FRD/ProdutoBundle/Entity/ProdutoCategoria.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.125" vertical-offset="180" max-vertical-offset="1350">
+          <caret line="33" column="64" selection-start-line="33" selection-start-column="64" selection-end-line="33" selection-end-column="64" />
+          <folding>
+            <element signature="e#44#92#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/FRD/ProdutoBundle/Resources/views/Default/teste.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.30564263" vertical-offset="0" max-vertical-offset="638">
-          <caret line="13" column="14" selection-start-line="13" selection-start-column="14" selection-end-line="13" selection-end-column="14" />
+        <state vertical-scroll-proportion="0.23510972" vertical-offset="0" max-vertical-offset="638">
+          <caret line="10" column="56" selection-start-line="7" selection-start-column="16" selection-end-line="10" selection-end-column="56" />
           <folding />
         </state>
       </provider>

@@ -2,13 +2,14 @@
 
 namespace FRD\ProdutoBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="FRD\ProdutoBundle\Entity\ProdutoRepository")
+ * @ORM\Entity()
  */
-class Produto
+class ProdutoCategoria
 {
     /**
      * @var integer
@@ -20,50 +21,32 @@ class Produto
     private $id;
 
     /**
-     * @var string
-     *
      * @ORM\Column(name="name", type="string", length=255)
      */
     private $name;
 
     /**
-     * @var string
-     *
      * @ORM\Column(name="description", type="text")
      */
     private $description;
 
     /**
-     * @ORM\OneToOne(targetEntity="ProdutoDetalhe")
-     * @ORM\JoinColumn(name="detail_id", referencedColumnName="id")
+     * @ORM\OneToMany(targetEntity="Produto", mappedBy="category")
      **/
-    private $detail;
+    private $produtos;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="ProdutoCategoria", inversedBy="produtos")
-     * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
-     **/
-    private $category;
-
-    public function getCategory()
-    {
-        return $this->category;
+    public function __construct() {
+        $this->produtos = new ArrayCollection();
     }
 
-    public function setCategory($category)
+    public function getProdutos()
     {
-        $this->category = $category;
-        return $this;
+        return $this->produtos;
     }
 
-    public function getDetail()
+    public function setProdutos($produtos)
     {
-        return $this->detail;
-    }
-
-    public function setDetail($detail)
-    {
-        $this->detail = $detail;
+        $this->produtos = $produtos;
         return $this;
     }
 
