@@ -1,0 +1,10 @@
+{% extends "::base.html.twig" %}
+
+{% block body %}
+    <h3>Carros Inseridos:</h3>
+    <ul>
+        {% for carro in carros %}
+            <li>{{ carro.fabricante }}-{{ carro.modelo }}: {{ carro.ano }}, {{ carro.cor }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

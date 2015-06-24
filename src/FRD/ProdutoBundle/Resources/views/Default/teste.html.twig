@@ -1,0 +1,9 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+<ul>
+    {% for produto in produtos %}
+        <li>{{ produto.name }} - {{ produto.description }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}
