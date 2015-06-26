@@ -28,44 +28,34 @@ class DefaultController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        /*$categoria = new ProdutoCategoria();
-        $categoria
+        $categoria1 = new ProdutoCategoria();
+        $categoria1
             ->setName("Tenis")
             ->setDescription("Todos os tipos de tenis")
         ;
-
-        $produtoDetalhe = new ProdutoDetalhe();
-        $produtoDetalhe
-            ->setAltura(10)
-            ->setLargura(15)
-            ->setPeso(1)
+        $categoria2 = new ProdutoCategoria();
+        $categoria2
+            ->setName("Calçados")
+            ->setDescription("Todos os tipos de calçados")
         ;
 
-        $produto = new Produto();
-        $produto
+        $produto1 = new Produto();
+        $produto1
             ->setName("Tenis Mizuno")
             ->setDescription("Descrição tenis Mizuno.")
         ;
 
-        $produto
-            ->setDetail($produtoDetalhe)
-            ->setCategory($categoria)
+        $produto1
+            ->addCategoria($categoria1)
+            ->addCategoria($categoria2)
         ;
 
-        $em->persist($categoria);
-        $em->persist($produtoDetalhe);
-        $em->persist($produto);
+        $em->persist($categoria1);
+        $em->persist($categoria2);
+        $em->persist($produto1);
 
         $em->flush();
 
-        $repo = $em->getRepository("FRD\ProdutoBundle\Entity\Produto");
-        $produtos = $repo->findAll();
-        //$produtos = $repo->findIdMaiorQue(5);*/
-
-        $repo = $em->getRepository("FRD\ProdutoBundle\Entity\ProdutoCategoria");
-        $categoria = $repo->find(1);
-
-
-        return ['categoria'=>$categoria];
+        return [];
     }
 }

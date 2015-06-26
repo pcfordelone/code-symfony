@@ -2,6 +2,7 @@
 
 namespace FRD\ProdutoBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -33,26 +34,27 @@ class Produto
      */
     private $description;
 
-    /**
-     * @ORM\OneToOne(targetEntity="ProdutoDetalhe")
-     * @ORM\JoinColumn(name="detail_id", referencedColumnName="id")
-     **/
-    private $detail;
+
 
     /**
-     * @ORM\ManyToOne(targetEntity="ProdutoCategoria", inversedBy="produtos")
-     * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
+     * @ORM\ManyToMany(targetEntity="ProdutoCategoria", inversedBy="produtos")
+     * @ORM\JoinTable(name="produtos_categorias")
      **/
-    private $category;
+    private $categorias;
 
-    public function getCategory()
+    public function __construct()
     {
-        return $this->category;
+        $this->categorias = new ArrayCollection();
     }
 
-    public function setCategory($category)
+    public function getCategorias()
     {
-        $this->category = $category;
+        return $this->categorias;
+    }
+
+    public function addCategoria($categoria)
+    {
+        $this->categorias[] = $categoria;
         return $this;
     }
 

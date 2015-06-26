@@ -31,7 +31,7 @@ class ProdutoCategoria
     private $description;
 
     /**
-     * @ORM\OneToMany(targetEntity="Produto", mappedBy="category")
+     * @ORM\ManyToMany(targetEntity="Produto", mappedBy="categorias")
      **/
     private $produtos;
 
