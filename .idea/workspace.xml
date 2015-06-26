@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4dd740d3-9768-45e4-9777-aec65754d056" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/FRD/CarBundle/Resources/views/Car/InsertCars.html.twig" afterPath="$PROJECT_DIR$/src/FRD/CarBundle/Resources/views/Car/insertCars.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FRD/CarBundle/Controller/CarController.php" afterPath="$PROJECT_DIR$/src/FRD/CarBundle/Controller/CarController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FRD/CarBundle/Entity/Fabricante.php" afterPath="$PROJECT_DIR$/src/FRD/CarBundle/Entity/Fabricante.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FRD/CarBundle/Controller/FabricanteController.php" afterPath="$PROJECT_DIR$/src/FRD/CarBundle/Controller/FabricanteController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FRD/CarBundle/Resources/views/Fabricante/addFabricante.html.twig" afterPath="$PROJECT_DIR$/src/FRD/CarBundle/Resources/views/Fabricante/addFabricante.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/config.yml" afterPath="$PROJECT_DIR$/app/config/config.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FRD/CarBundle/Resources/views/Car/index.html.twig" afterPath="$PROJECT_DIR$/src/FRD/CarBundle/Resources/views/Car/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FRD/CarBundle/Resources/views/Fabricante/index.html.twig" afterPath="$PROJECT_DIR$/src/FRD/CarBundle/Resources/views/Fabricante/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
     </list>
     <ignored path="Symfony.iws" />
     <ignored path=".idea/workspace.xml" />
