@@ -19,9 +19,14 @@ class CarroType extends AbstractType
     {
         $builder
             ->add('modelo', 'text', ['label'=>'Modelo:', 'required'=>true])
-            ->add('fabricante')
-            ->add('ano')
-            ->add('cor')
+            ->add('fabricante', 'entity', [
+                'class'=>'FRDCarBundle:Fabricante',
+                'property' => 'nome',
+                'placeholder' => 'Selecione um fabricante',
+                'label' => 'Fabricante:'
+            ])
+            ->add('ano', 'text', ['label'=>'Ano:', 'required'=>true])
+            ->add('cor', 'text', ['label'=>'Cor:', 'required'=>true])
         ;
     }
 

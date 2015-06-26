@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4dd740d3-9768-45e4-9777-aec65754d056" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FRD/CarBundle/Form/CarroType.php" afterPath="$PROJECT_DIR$/src/FRD/CarBundle/Form/CarroType.php" />
     </list>
     <ignored path="Symfony.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -62,8 +62,8 @@
       <file leaf-file-name="CarroType.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/FRD/CarBundle/Form/CarroType.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4937304" vertical-offset="0" max-vertical-offset="675">
-              <caret line="21" column="31" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
+            <state vertical-scroll-proportion="0.54075235" vertical-offset="0" max-vertical-offset="750">
+              <caret line="23" column="31" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="35" />
               <folding>
                 <element signature="e#38#70#0#PHP" expanded="true" />
               </folding>
@@ -880,8 +880,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/FRD/CarBundle/Form/CarroType.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4937304" vertical-offset="0" max-vertical-offset="675">
-          <caret line="21" column="31" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
+        <state vertical-scroll-proportion="0.54075235" vertical-offset="0" max-vertical-offset="750">
+          <caret line="23" column="31" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="35" />
           <folding>
             <element signature="e#38#70#0#PHP" expanded="true" />
           </folding>
