@@ -28,6 +28,11 @@ class Fabricante
     private $nome;
 
     /**
+     * @ORM\Column(name="descricao", type="text")
+     */
+    private $descricao;
+
+    /**
      * @ORM\OneToMany(targetEntity="Carro", mappedBy="fabricante")
      **/
     private $carros;
@@ -35,6 +40,17 @@ class Fabricante
     public function __construct()
     {
         $this->carros = new ArrayCollection();
+    }
+
+    public function getDescricao()
+    {
+        return $this->descricao;
+    }
+
+    public function setDescricao($descricao)
+    {
+        $this->descricao = $descricao;
+        return $this;
     }
 
     public function getCarros()
