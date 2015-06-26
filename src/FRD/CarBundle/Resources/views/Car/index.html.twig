@@ -1,11 +1,40 @@
 {% extends "::base.html.twig" %}
 
 {% block body %}
-    <h1>Lista de Carros</h1>
 
-    <ul>
-        {% for car in carros %}
-            <li>{{ car.fabricante.nome }} - {{ car.modelo }}: ano:{{ car.ano }} / cor: {{ car.cor }}</li>
-        {% endfor %}
-    </ul>
+    <div class="container">
+        <h2>Lista de carros</h2>
+        <hr/>
+        <p><a href="{{ path('carro_insert') }}" class="btn btn-default">Inserir novo carro</a></p>
+        <hr/>
+
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Fabricante</th>
+                <th>Modelo</th>
+                <th>Ano</th>
+                <th>Cor</th>
+                <th>Ação</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for carro in carros %}
+                <tr>
+                    <td>{{ carro.id }}</td>
+                    <td>{{ carro.fabricante.nome }}</td>
+                    <td>{{ carro.modelo }}</td>
+                    <td>{{ carro.ano }}</td>
+                    <td>{{ carro.cor }}</td>
+                    <td>
+                        <a href="{{ path('carro_edit',{'id': carro.id}) }}" class="btn btn-warning btn-sm">edit</a>
+                        <a href="{{ path('carro_delete',{'id': carro.id}) }}" class="btn btn-danger btn-sm">apagar</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
 {% endblock %}

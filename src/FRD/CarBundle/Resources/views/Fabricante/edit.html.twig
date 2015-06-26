@@ -3,15 +3,15 @@
 {% block body %}
 
     <div class="container">
-        <h2>Inserir novo Carro</h2>
+        <h2>Editar fabricante {{ entity.nome }}</h2>
         <hr/>
 
-        <form class="" action="{{ path('carro_create') }}" method="post">
+        <form class="" action="{{ path("fabricante_update", {'id': entity.id}) }}" method="post">
 
             {{ form_widget(form) }}
 
             <button class="btn btn-success" type="submit">Adicionar</button>
-            <a href="{{ path("carros") }}" class="btn btn-info">Voltar</a>
+            <a href="{{ path("fabricantes") }}" class="btn btn-info">Voltar</a>
         </form>
 
         <hr/>

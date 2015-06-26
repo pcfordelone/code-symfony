@@ -42,6 +42,11 @@ class Fabricante
         $this->carros = new ArrayCollection();
     }
 
+    public function __toString()
+    {
+        return $this->getNome();
+    }
+
     public function getDescricao()
     {
         return $this->descricao;

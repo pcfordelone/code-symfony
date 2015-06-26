@@ -3,17 +3,18 @@
 namespace FRD\CarBundle\Controller;
 
 use FRD\CarBundle\Entity\Carro;
-use FRD\CarBundle\Entity\Fabricante;
+use FRD\CarBundle\Form\CarroType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Component\HttpFoundation\Request;
 
 
 class CarController extends Controller
 {
 
     /**
-     * @Route("/", name="cars_index")
+     * @Route("/", name="carros")
      * @Template()
      */
     public function indexAction()
@@ -26,76 +27,111 @@ class CarController extends Controller
     }
 
     /**
-     * @Route("/fabricantes/{id}", name="fabricantes_index")
-     * @Template()
-     */
-    public function fabricanteAction($id)
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        $fabricante = $em->getRepository("FRD\CarBundle\Entity\Fabricante")->find($id);
-
-        return ["fabricante" => $fabricante];
-    }
-
-    /**
-     * @Route("/inserir_carros", name="insert_cars_index")
+     * @Route("/insert", name="carro_insert")
      * @Template()
      */
     public function insertCarsAction()
     {
+        $entity = new Carro();
+        $form = $this->createForm(new CarroType($entity), $entity);
+
+        return [
+            'entity' => $entity,
+            'form' => $form->createView()
+        ];
+    }
+
+    /**
+     * @Route("/create/", name="carro_create")
+     * @Template("FRDCarBundle:Carro:insertCars.html.twig")
+     */
+    public function createAction(Request $request)
+    {
+        $entity = new Carro();
+
+        $form = $this->createForm(new CarroType(), $entity);
+        $form->bind($request);
+
+        if ($form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($entity);
+            $em->flush();
+
+            return $this->redirect($this->generateUrl('carros'));
+        }
+
+        return [
+            'entity' => $entity,
+            'form' => $form->createView()
+        ];
+    }
+
+    /**
+     * @Route("/{id}/edit", name="carro_edit")
+     * @Template()
+     */
+    public function editAction($id)
+    {
         $em = $this->getDoctrine()->getManager();
+        $entity = $em->getRepository("FRDCarBundle:Carro")->find($id);
 
-        $fabricante01 = new Fabricante();
-        $fabricante01->setNome("BMW");
-        $em->persist($fabricante01);
+        if(!$entity) {
+            throw $this->createNotFoundException("Registro não encontrado");
+        }
 
-        $fabricante02 = new Fabricante();
-        $fabricante02->setNome("Ford");
-        $em->persist($fabricante02);
+        $form = $this->createForm(new CarroType(), $entity);
 
-        $fabricante03 = new Fabricante();
-        $fabricante03->setNome("Volkswagen");
-        $em->persist($fabricante03);
+        return [
+            'entity' => $entity,
+            'form' => $form->createView()
+        ];
+    }
 
-        $carro1 = new Carro();
-        $carro1
-            ->setFabricante($fabricante01)
-            ->setModelo("X1")
-            ->setAno("2015")
-            ->setCor("Preta")
-        ;
-        $em->persist($carro1);
+    /**
+     * @Route("/{id}/update/", name="carro_update")
+     * @Template("FRDCarBundle:Carro:edit.html.twig")
+     */
+    public function updateAction(Request $request, $id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $entity = $em->getRepository("FRDCarBundle:Carro")->find($id);
 
-        $carro2 = new Carro();
-        $carro2
-            ->setFabricante($fabricante01)
-            ->setModelo("X3")
-            ->setAno("2015")
-            ->setCor("Prata")
-        ;
-        $em->persist($carro2);
+        if(!$entity) {
+            throw $this->createNotFoundException("Registro não encontrado");
+        }
 
-        $carro3 = new Carro();
-        $carro3
-            ->setFabricante($fabricante02)
-            ->setModelo("Focus")
-            ->setAno("2015")
-            ->setCor("Branca")
-        ;
-        $em->persist($carro3);
+        $form = $this->createForm(new CarroType(), $entity);
+        $form->bind($request);
 
-        $carro4 = new Carro();
-        $carro4
-            ->setFabricante($fabricante03)
-            ->setModelo("Jetta")
-            ->setAno("2015")
-            ->setCor("Branca")
-        ;
-        $em->persist($carro4);
+        if ($form->isValid()) {
+            $em->persist($entity);
+            $em->flush();
 
+            return $this->redirect($this->generateUrl('carros'));
+        }
+
+        return [
+            'entity' => $entity,
+            'form' => $form->createView()
+        ];
+    }
+
+    /**
+     * @Route("/{id}/delete/", name="carro_delete")
+     * @Template()
+     */
+    public function deleteAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $entity = $em->getRepository("FRDCarBundle:Carro")->find($id);
+
+        if(!$entity) {
+            throw $this->createNotFoundException("Registro não encontrado");
+        }
+
+        $em->remove($entity);
         $em->flush();
 
-        return ["carros"=>[$carro1,$carro2,$carro3,$carro4]];
+        return $this->redirect($this->generateUrl('carros'));
     }
 }

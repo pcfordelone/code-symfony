@@ -3,10 +3,10 @@
 {% block body %}
 
     <div class="container">
-        <h2>Inserir novo Carro</h2>
+        <h2>Editar carro {{ entity.modelo }}</h2>
         <hr/>
 
-        <form class="" action="{{ path('carro_create') }}" method="post">
+        <form class="" action="{{ path("carro_update", {'id': entity.id}) }}" method="post">
 
             {{ form_widget(form) }}
 

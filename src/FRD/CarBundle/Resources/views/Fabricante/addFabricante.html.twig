@@ -6,12 +6,12 @@
         <h2>Inserir novo Fabricante</h2>
         <hr/>
 
-        <form class="" action="{{ path('create_fabricante') }}" method="post">
+        <form class="" action="{{ path('fabricante_create') }}" method="post">
 
             {{ form_widget(form) }}
 
             <button class="btn btn-success" type="submit">Adicionar</button>
-            <a href="{{ path("fabricantes_index") }}" class="btn btn-info">Voltar</a>
+            <a href="{{ path("fabricantes") }}" class="btn btn-info">Voltar</a>
         </form>
 
         <hr/>

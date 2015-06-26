@@ -11,11 +11,14 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Request;
 
 
+/**
+ * @Route("/fabricantes")
+ */
 class FabricanteController extends Controller
 {
 
     /**
-     * @Route("/fabricantes", name="fabricantes_index")
+     * @Route("/", name="fabricantes")
      * @Template()
      */
     public function indexAction()
@@ -28,7 +31,7 @@ class FabricanteController extends Controller
     }
 
     /**
-     * @Route("/new_fabricante", name="new_fabricante")
+     * @Route("/new/", name="fabricante_new")
      * @Template()
      */
     public function addFabricanteAction()
@@ -43,7 +46,7 @@ class FabricanteController extends Controller
     }
 
     /**
-     * @Route("/create_fabricante", name="create_fabricante")
+     * @Route("/create/", name="fabricante_create")
      * @Template("FRDCarBundle:Fabricante:addFabricante.html.twig")
      */
     public function createAction(Request $request)
@@ -58,7 +61,7 @@ class FabricanteController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('fabricantes_index'));
+            return $this->redirect($this->generateUrl('fabricantes'));
         }
 
         return [
@@ -67,5 +70,73 @@ class FabricanteController extends Controller
         ];
     }
 
+    /**
+     * @Route("/{id}/edit", name="fabricante_edit")
+     * @Template()
+     */
+    public function editAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $entity = $em->getRepository("FRDCarBundle:Fabricante")->find($id);
+
+        if(!$entity) {
+            throw $this->createNotFoundException("Registro não encontrado");
+        }
+
+        $form = $this->createForm(new FabricanteType(), $entity);
+
+        return [
+            'entity' => $entity,
+            'form' => $form->createView()
+        ];
+    }
+
+    /**
+     * @Route("/{id}/update/", name="fabricante_update")
+     * @Template("FRDCarBundle:Fabricante:edit.html.twig")
+     */
+    public function updateAction(Request $request, $id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $entity = $em->getRepository("FRDCarBundle:Fabricante")->find($id);
+
+        if(!$entity) {
+            throw $this->createNotFoundException("Registro não encontrado");
+        }
+
+        $form = $this->createForm(new FabricanteType(), $entity);
+        $form->bind($request);
+
+        if ($form->isValid()) {
+            $em->persist($entity);
+            $em->flush();
+
+            return $this->redirect($this->generateUrl('fabricantes'));
+        }
+
+        return [
+            'entity' => $entity,
+            'form' => $form->createView()
+        ];
+    }
+
+    /**
+     * @Route("/{id}/delete/", name="fabricante_delete")
+     * @Template()
+     */
+    public function deleteAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $entity = $em->getRepository("FRDCarBundle:Fabricante")->find($id);
+
+        if(!$entity) {
+            throw $this->createNotFoundException("Registro não encontrado");
+        }
+
+        $em->remove($entity);
+        $em->flush();
+
+        return $this->redirect($this->generateUrl('fabricantes'));
+    }
 
 }
