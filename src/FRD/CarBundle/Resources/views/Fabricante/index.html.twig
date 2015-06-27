@@ -5,7 +5,14 @@
     <div class="container">
         <h2>Lista de fabricantes</h2>
         <hr/>
-        <p><a href="{{ path("fabricante_new") }}" class="btn btn-default">Inserir novo fabricante</a></p>
+        <p>
+            <a href="{{ path("fabricante_new") }}" class="btn btn-default">Inserir novo fabricante</a>
+            <a href="{{ url('carros') }}" class="btn btn-default">Fabricantes</a>
+        </p>
+        {% set msg = app.request.query.get('msg') %}
+        {% if msg.type is defined %}
+            <span class="{{ msg.type }}">{{ msg.text }}</span>
+        {% endif %}
         <hr/>
 
         <table class="table table-striped">

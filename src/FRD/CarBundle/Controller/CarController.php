@@ -4,6 +4,7 @@ namespace FRD\CarBundle\Controller;
 
 use FRD\CarBundle\Entity\Carro;
 use FRD\CarBundle\Form\CarroType;
+use FRD\CarBundle\Service\CarService;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -17,13 +18,15 @@ class CarController extends Controller
      * @Route("/", name="carros")
      * @Template()
      */
-    public function indexAction()
+    public function indexAction(Request $request = null)
     {
         $em = $this->getDoctrine()->getManager();
-
         $carros = $em->getRepository("FRD\CarBundle\Entity\Carro")->findAll();
 
-        return ["carros" => $carros];
+
+        return [
+            "carros" => $carros,
+        ];
     }
 
     /**
@@ -33,7 +36,7 @@ class CarController extends Controller
     public function insertCarsAction()
     {
         $entity = new Carro();
-        $form = $this->createForm(new CarroType($entity), $entity);
+        $form = $this->createForm(new CarroType(), $entity);
 
         return [
             'entity' => $entity,
@@ -50,12 +53,11 @@ class CarController extends Controller
         $entity = new Carro();
 
         $form = $this->createForm(new CarroType(), $entity);
-        $form->bind($request);
+        $form->submit($request);
 
         if ($form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($entity);
-            $em->flush();
+            $carService = $this->get("frd_car.service.produto");
+            $carService->insert($entity);
 
             return $this->redirect($this->generateUrl('carros'));
         }
@@ -104,10 +106,10 @@ class CarController extends Controller
         $form->bind($request);
 
         if ($form->isValid()) {
-            $em->persist($entity);
-            $em->flush();
+            $carService = $this->get("frd_car.service.produto");
+            $msg = $carService->update($entity);
 
-            return $this->redirect($this->generateUrl('carros'));
+            return $this->redirect($this->generateUrl('carros',['msg'=>$msg]));
         }
 
         return [
@@ -129,9 +131,9 @@ class CarController extends Controller
             throw $this->createNotFoundException("Registro não encontrado");
         }
 
-        $em->remove($entity);
-        $em->flush();
+        $carService = $this->get("frd_car.service.produto");
+        $msg = $carService->delete($entity);
 
-        return $this->redirect($this->generateUrl('carros'));
+        return $this->redirect($this->generateUrl('carros',['msg'=>$msg]));
     }
 }

@@ -1,0 +1,10 @@
+services:
+  frd_car.service.produto:
+    class: FRD\CarBundle\Service\CarService
+    arguments:
+      - "@doctrine.orm.entity_manager"
+
+  frd_car.service.fabricante:
+      class: FRD\CarBundle\Service\FabricanteService
+      arguments:
+        - "@doctrine.orm.entity_manager"

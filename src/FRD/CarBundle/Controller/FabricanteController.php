@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 
 /**
- * @Route("/fabricantes")
+ * @Route("/fabricantes", name="fabricantes_index")
  */
 class FabricanteController extends Controller
 {
@@ -57,11 +57,10 @@ class FabricanteController extends Controller
         $form->bind($request);
 
         if ($form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($entity);
-            $em->flush();
+            $service = $this->get("frd_car.service.fabricante");
+            $msg = $service->insert($entity);
 
-            return $this->redirect($this->generateUrl('fabricantes'));
+            return $this->redirect($this->generateUrl('fabricantes',['msg'=>$msg]));
         }
 
         return [
@@ -108,10 +107,10 @@ class FabricanteController extends Controller
         $form->bind($request);
 
         if ($form->isValid()) {
-            $em->persist($entity);
-            $em->flush();
+            $service = $this->get("frd_car.service.fabricante");
+            $msg = $service->update($entity);
 
-            return $this->redirect($this->generateUrl('fabricantes'));
+            return $this->redirect($this->generateUrl('fabricantes', ['msg'=>$msg]));
         }
 
         return [
@@ -133,10 +132,10 @@ class FabricanteController extends Controller
             throw $this->createNotFoundException("Registro não encontrado");
         }
 
-        $em->remove($entity);
-        $em->flush();
+        $service = $this->get("frd_car.service.fabricante");
+        $msg = $service->delete($entity);
 
-        return $this->redirect($this->generateUrl('fabricantes'));
+        return $this->redirect($this->generateUrl('fabricantes', ['msg'=>$msg]));
     }
 
 }
