@@ -8,6 +8,7 @@ use FRD\CarBundle\Service\CarService;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Component\Finder\Exception\AccessDeniedException;
 use Symfony\Component\HttpFoundation\Request;
 
 
@@ -35,6 +36,8 @@ class CarController extends Controller
      */
     public function insertCarsAction()
     {
+        $this->checkAuth();
+
         $entity = new Carro();
         $form = $this->createForm(new CarroType(), $entity);
 
@@ -50,6 +53,8 @@ class CarController extends Controller
      */
     public function createAction(Request $request)
     {
+        $this->checkAuth();
+
         $entity = new Carro();
 
         $form = $this->createForm(new CarroType(), $entity);
@@ -74,6 +79,8 @@ class CarController extends Controller
      */
     public function editAction($id)
     {
+        $this->checkAuth();
+
         $em = $this->getDoctrine()->getManager();
         $entity = $em->getRepository("FRDCarBundle:Carro")->find($id);
 
@@ -95,6 +102,8 @@ class CarController extends Controller
      */
     public function updateAction(Request $request, $id)
     {
+        $this->checkAuth();
+
         $em = $this->getDoctrine()->getManager();
         $entity = $em->getRepository("FRDCarBundle:Carro")->find($id);
 
@@ -124,6 +133,8 @@ class CarController extends Controller
      */
     public function deleteAction($id)
     {
+        $this->checkAuth();
+
         $em = $this->getDoctrine()->getManager();
         $entity = $em->getRepository("FRDCarBundle:Carro")->find($id);
 
@@ -135,5 +146,14 @@ class CarController extends Controller
         $msg = $carService->delete($entity);
 
         return $this->redirect($this->generateUrl('carros',['msg'=>$msg]));
+    }
+
+    private function checkAuth()
+    {
+        $securityContext = $this->get('security.context');
+
+        if (!$securityContext->isGranted('ROLE_ADMIN')) {
+            throw new AccessDeniedException("Somente administradores tem acesso");
+        }
     }
 }

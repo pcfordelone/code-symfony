@@ -19,6 +19,8 @@ class AppKernel extends Kernel
             new AppBundle\AppBundle(),
             new FRD\ProdutoBundle\FRDProdutoBundle(),
             new FRD\CarBundle\FRDCarBundle(),
+            new FRD\UserBundle\FRDUserBundle(),
+            new FOS\UserBundle\FOSUserBundle()
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

@@ -6,7 +6,9 @@
         <h2>Lista de fabricantes</h2>
         <hr/>
         <p>
+            {% if is_granted('ROLE_ADMIN') %}
             <a href="{{ path("fabricante_new") }}" class="btn btn-default">Inserir novo fabricante</a>
+            {% endif %}
             <a href="{{ url('carros') }}" class="btn btn-default">Carros</a>
         </p>
         {% set msg = app.request.query.get('msg') %}
@@ -22,7 +24,9 @@
                 <th>Nome</th>
                 <th>Descrição</th>
                 <th>Carros</th>
+                {% if is_granted('ROLE_ADMIN') %}
                 <th>Ação</th>
+                {% endif %}
             </tr>
             </thead>
             <tbody>
@@ -38,10 +42,12 @@
                             {% endfor %}
                         </ul>
                     </td>
+                    {% if is_granted('ROLE_ADMIN') %}
                     <td>
                         <a href="{{ path('fabricante_edit', {'id': fabricante.id}) }}" class="btn btn-warning btn-sm">edit</a>
                         <a href="{{ path('fabricante_delete', {'id': fabricante.id}) }}" class="btn btn-danger btn-sm">apagar</a>
                     </td>
+                    {% endif %}
                 </tr>
             {% endfor %}
             </tbody>

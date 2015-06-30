@@ -6,7 +6,9 @@
         <h2>Lista de carros</h2>
         <hr/>
         <p>
-            <a href="{{ path('carro_insert') }}" class="btn btn-default">Inserir novo carro</a>
+            {% if is_granted('ROLE_ADMIN') %}
+                <a href="{{ path('carro_insert') }}" class="btn btn-default">Inserir novo carro</a>
+            {% endif %}
             <a href="{{ url('fabricantes') }}" class="btn btn-default">Fabricantes</a>
 
         </p>
@@ -25,7 +27,9 @@
                 <th>Modelo</th>
                 <th>Ano</th>
                 <th>Cor</th>
+                {% if is_granted('ROLE_ADMIN') %}
                 <th>Ação</th>
+                {% endif %}
             </tr>
             </thead>
             <tbody>
@@ -36,10 +40,12 @@
                     <td>{{ carro.modelo }}</td>
                     <td>{{ carro.ano }}</td>
                     <td>{{ carro.cor }}</td>
+                    {% if is_granted('ROLE_ADMIN') %}
                     <td>
                         <a href="{{ path('carro_edit',{'id': carro.id}) }}" class="btn btn-warning btn-sm">edit</a>
                         <a href="{{ path('carro_delete',{'id': carro.id}) }}" class="btn btn-danger btn-sm">apagar</a>
                     </td>
+                    {% endif %}
                 </tr>
             {% endfor %}
             </tbody>

@@ -1,3 +1,8 @@
+frd_user:
+    resource: "@FRDUserBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 frd_car:
     resource: "@FRDCarBundle/Controller/"
     type:     annotation
@@ -11,3 +16,6 @@ frd_produto:
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
